@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app version="2.4" 
+	xmlns="http://java.sun.com/xml/ns/j2ee" 
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+	xsi:schemaLocation="http://java.sun.com/xml/ns/j2ee 
+	http://java.sun.com/xml/ns/j2ee/web-app_2_4.xsd">
+    <session-config>
+		<session-timeout>60</session-timeout>
+	</session-config>
+  <context-param>
+		<param-name>contextConfigLocation</param-name>
+		<param-value>
+			/WEB-INF/config/applicationContext.xml,
+		</param-value>
+	</context-param>
+  
+  
+   <context-param>
+	      <param-name>agentConfigLocation</param-name>
+	      <param-value>
+	     	file:C:\\workspace\\Test\\WebContent\\WEB-INF\\config\\paas-agent-config.properties
+	      </param-value>
+	</context-param>
+	
+	<listener>
+         <listener-class>com.ucloud.paas.agent.PaasAgentLoadListener</listener-class>
+	</listener>
+  
+    <servlet>
+	    <servlet-name>passtest</servlet-name>
+	    <servlet-class>pass.test.PassTestServlet</servlet-class>
+	</servlet>
+	
+	<servlet-mapping>
+	    <servlet-name>passtest</servlet-name>
+	    <url-pattern>/pass/test.do</url-pattern>
+	</servlet-mapping>
+  
+  
+  <welcome-file-list>
+    <welcome-file>index.jsp</welcome-file>
+  </welcome-file-list>
+</web-app>
